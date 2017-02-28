@@ -102,6 +102,9 @@
 		35B7FD11180A2DA30019BF59 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35B7FD0F180A2DA30019BF59 /* Default-568h@2x.png */; };
 		35B7FD12180A2DA30019BF59 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35B7FD10180A2DA30019BF59 /* Default@2x.png */; };
 		35B7FD15180A2FA30019BF59 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7FD14180A2FA30019BF59 /* Globals.m */; };
+		5833E75B1E65AB4F00F416F6 /* FWUnlockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5833E7581E65AB4F00F416F6 /* FWUnlockViewController.xib */; };
+		5833E75C1E65AB4F00F416F6 /* FWUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5833E7591E65AB4F00F416F6 /* FWUnlockViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5833E7621E65B28400F416F6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5833E7611E65B28400F416F6 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -227,6 +230,10 @@
 		35B7FD13180A2FA30019BF59 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		35B7FD14180A2FA30019BF59 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
 		5833E7571E65759800F416F6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5833E7581E65AB4F00F416F6 /* FWUnlockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FWUnlockViewController.xib; sourceTree = "<group>"; };
+		5833E7591E65AB4F00F416F6 /* FWUnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWUnlockViewController.m; sourceTree = "<group>"; };
+		5833E75A1E65AB4F00F416F6 /* FWUnlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWUnlockViewController.h; sourceTree = "<group>"; };
+		5833E7611E65B28400F416F6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5833E7621E65B28400F416F6 /* StoreKit.framework in Frameworks */,
 				35789132180A3E5E0056F3B7 /* AVFoundation.framework in Frameworks */,
 				35B7FD0D180A292B0019BF59 /* Security.framework in Frameworks */,
 				35B7FD0E180A292B0019BF59 /* SystemConfiguration.framework in Frameworks */,
@@ -253,6 +261,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5833E75D1E65AF6100F416F6 /* Plugin */,
 				351BA9C90F020A0700A8E662 /* Controllers */,
 				351BA9C80F020A0100A8E662 /* Models */,
 				351BA9C70F0209FC00A8E662 /* Views */,
@@ -309,6 +318,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5833E7611E65B28400F416F6 /* StoreKit.framework */,
 				35789131180A3E5E0056F3B7 /* AVFoundation.framework */,
 				35B7FD0B180A292B0019BF59 /* Security.framework */,
 				35B7FD0C180A292B0019BF59 /* SystemConfiguration.framework */,
@@ -325,6 +335,9 @@
 		351BA9C70F0209FC00A8E662 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5833E7581E65AB4F00F416F6 /* FWUnlockViewController.xib */,
+				5833E7591E65AB4F00F416F6 /* FWUnlockViewController.m */,
+				5833E75A1E65AB4F00F416F6 /* FWUnlockViewController.h */,
 				35A276880F07592F00B0C903 /* CompletionSummary.h */,
 				35A276890F07592F00B0C903 /* CompletionSummary.m */,
 				351BB3510F06009E00A8E662 /* MapPreviewView.h */,
@@ -477,6 +490,13 @@
 			path = FlurryiPhoneSDK/Licenses;
 			sourceTree = SOURCE_ROOT;
 		};
+		5833E75D1E65AF6100F416F6 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Plugin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -577,6 +597,7 @@
 				35315DEF0F08153B00D9C3DE /* button_wait_gray.png in Resources */,
 				35315E720F08597C00D9C3DE /* kick.wav in Resources */,
 				35315E730F08597C00D9C3DE /* thump.wav in Resources */,
+				5833E75B1E65AB4F00F416F6 /* FWUnlockViewController.xib in Resources */,
 				35B7FD12180A2DA30019BF59 /* Default@2x.png in Resources */,
 				35973E490F08611000343BFE /* tutorial.png in Resources */,
 				35973F9D0F08A0EA00343BFE /* select.wav in Resources */,
@@ -624,6 +645,7 @@
 				351BB3530F06009E00A8E662 /* MapPreviewView.m in Sources */,
 				351BB4760F06BAB600A8E662 /* FlourishController.m in Sources */,
 				35A2768A0F07592F00B0C903 /* CompletionSummary.m in Sources */,
+				5833E75C1E65AB4F00F416F6 /* FWUnlockViewController.m in Sources */,
 				35973E4C0F08612400343BFE /* TutorialView.m in Sources */,
 				359743160F09EB9900343BFE /* OptionsView.m in Sources */,
 				359745F20F0B01EF00343BFE /* CreditsView.m in Sources */,

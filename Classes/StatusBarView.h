@@ -18,6 +18,9 @@
 #define kStatusBarLabelNameX 10.0
 #define kStatusBarLabelNameW 110.0
 
+#define kStatusBarLabelDiamondX 60.0
+#define kStatusBarLabelDiamondW 110.0
+
 #define kStatusBarLabelMovesX 130.0
 #define kStatusBarLabelMovesW 110.0
 
@@ -35,6 +38,7 @@
 	UILabel *label_name;
 	UILabel *label_moves;
 	UILabel *label_bestmoves;
+    UILabel *label_diamond;
 	
 	UIImageView *award_img;	
 	
@@ -44,6 +48,7 @@
 - (void)appear:(BOOL)appear;
 
 - (void)setName:(NSString*)name;
+- (void)setDiamond:(NSInteger)diamond;
 - (void)setMoves:(int)moves outOf:(int)goldMoves;
 - (void)setBestMoves:(int)bmoves;
 - (void)setAward:(int)award_level;

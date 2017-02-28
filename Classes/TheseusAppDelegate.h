@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#define ISNULL(x) (x?((id)x==(id)[NSNull null]):true)
 @interface TheseusAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+
+//宝石数量
+@property (nonatomic, assign) NSInteger gDiamond;
 
 @end
 
