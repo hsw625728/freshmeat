@@ -5,6 +5,7 @@
 
 #import "FWUnlockViewController.h"
 #import "TheseusAppDelegate.h"
+#import "TheseusAppDelegate.h"
 //#import "UIColor+FWAppColors.h"
 //#import "UIFont+FWAppFonts.h"
 //#import "UIView+FWConvenience.h"
@@ -12,13 +13,22 @@
 
 @interface FWUnlockViewController ()
 
+/*
 @property (nonatomic, strong) UIButton *returnButton;
 @property (nonatomic, strong) UIButton *unlockItem1Button;
 @property (nonatomic, strong) UIButton *unlockItem2Button;
 @property (nonatomic, strong) UIButton *unlockItem3Button;
 @property (nonatomic, strong) UIButton *unlockItem4Button;
 @property (nonatomic, strong) UILabel *copyrightLabel;
-
+*/
+@property (retain, nonatomic) IBOutlet UIButton *unlockItem1Button;
+@property (retain, nonatomic) IBOutlet UIButton *unlockItem2Button;
+@property (retain, nonatomic) IBOutlet UIButton *unlockItem3Button;
+@property (retain, nonatomic) IBOutlet UIButton *unlockItem4Button;
+@property (retain, nonatomic) IBOutlet UIButton *returnButton;
+@property (retain, nonatomic) IBOutlet UILabel *copyrightLabel;
+@property (retain, nonatomic) IBOutlet UILabel *descLabel;
+ 
 @property (nonatomic, assign) BOOL areFirstLoadAnimationsExecuted;
 
 @end
@@ -37,14 +47,15 @@
 
 #pragma mark - UIViewController
 - (void)updateText{
-        self.unlockItem4Button = [FWUnlockViewController createMenuButtonWithTitle:NSLocalizedString(@"unlock.item4", @"45元解锁500+360(额外赠送)个模板")];
+    
+        self.unlockItem4Button = [FWUnlockViewController createMenuButtonWithTitle:NSLocalizedString(@"unlock.item4", @"6元购买60个宝石")];
 
-        self.unlockItem3Button = [FWUnlockViewController createMenuButtonWithTitle:NSLocalizedString(@"unlock.item3", @"25元解锁240+120(额外赠送)个模板")];
+        self.unlockItem3Button = [FWUnlockViewController createMenuButtonWithTitle:NSLocalizedString(@"unlock.item3", @"12元购买130个宝石")];
 
-        self.unlockItem2Button = [FWUnlockViewController createMenuButtonWithTitle:NSLocalizedString(@"unlock.item2", @"12元解锁90+30(额外赠送)个模板")];
+        self.unlockItem2Button = [FWUnlockViewController createMenuButtonWithTitle:NSLocalizedString(@"unlock.item2", @"18元购买300个宝石")];
 
-        self.unlockItem1Button = [FWUnlockViewController createMenuButtonWithTitle:NSLocalizedString(@"unlock.item1", @"6元 解锁30个模板")];
-
+        self.unlockItem1Button = [FWUnlockViewController createMenuButtonWithTitle:NSLocalizedString(@"unlock.item1", @"40元购买1000个宝石")];
+     
 }
 
 - (void)viewDidLoad
@@ -55,19 +66,28 @@
     _activityIndicatorView.activityIndicatorViewStyle= UIActivityIndicatorViewStyleGray;
     [self.view addSubview:_activityIndicatorView];
     
+    _descLabel.text = @"点击提示按钮会自动走一步\n同时会消耗一个宝石币";
     self.returnButton = [FWUnlockViewController createMenuButtonWithTitle:NSLocalizedString(@"unlock.return", @"关闭宝石页面")];
     [self updateText];
 
+    /*
     [self.returnButton addTarget:self action:@selector(returnButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.unlockItem1Button addTarget:self action:@selector(unlockItem1ButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.unlockItem2Button addTarget:self action:@selector(unlockItem2ButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.unlockItem3Button addTarget:self action:@selector(unlockItem3ButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.unlockItem4Button addTarget:self action:@selector(unlockItem4ButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    
+    */
     self.copyrightLabel = [[UILabel alloc] init];
     self.copyrightLabel.text = NSLocalizedString(@"launch.copyright", @"© 2017 mengyoutu.cn");
     //self.copyrightLabel.font = [UIFont tinyBold];
     self.copyrightLabel.textColor = [UIColor whiteColor];
+    
+
+    
+    self.unlockItem1Button.frame = CGRectMake(self.view.frame.size.width/2, 0, self.view.frame.size.width/2, 100);
+    self.unlockItem2Button.frame = CGRectMake(self.view.frame.size.width/2, 200, self.view.frame.size.width/2, 100);
+    self.unlockItem3Button.frame = CGRectMake(self.view.frame.size.width/2, 400, self.view.frame.size.width/2, 100);
+    self.unlockItem4Button.frame = CGRectMake(self.view.frame.size.width/2, 600, self.view.frame.size.width/2, 100);
     
     [self.view addSubview:self.returnButton];
     [self.view addSubview:self.unlockItem1Button];
@@ -126,30 +146,21 @@
      */
 }
 
-- (void)returnButtonTapped:(UIButton *)quickGameButton
-{
-    //关闭购买界面
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)unlockItem1ButtonTapped:(UIButton *)quickGameButton
-{
+- (IBAction)meat1:(id)sender {
     [self buy:LineLifeItem1];
 }
-
-- (void)unlockItem2ButtonTapped:(UIButton *)patternsButton
-{
+- (IBAction)meat2:(id)sender {
     [self buy:LineLifeItem2];
 }
-
-- (void)unlockItem3ButtonTapped:(UIButton *)savedGamesButton
-{
+- (IBAction)meat3:(id)sender {
     [self buy:LineLifeItem3];
 }
-
-- (void)unlockItem4ButtonTapped:(UIButton *)aboutButton
-{
+- (IBAction)meat4:(id)sender {
     [self buy:LineLifeItem4];
+}
+- (IBAction)returnButton:(id)sender {
+    //关闭购买界面
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 + (UIButton *)createMenuButtonWithTitle:(NSString *)title
@@ -157,8 +168,8 @@
     UIButton *newButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [newButton setTitle:title forState:UIControlStateNormal];
     //[newButton.titleLabel setFont:[UIFont largeBold]];
-    [newButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    //[newButton setTitleColor:[UIColor lightGrey] forState:UIControlStateHighlighted];
+    [newButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [newButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     newButton.alpha = 0.0f;
     newButton.frame = CGRectMake(0.0f, 0.0f, 300.0f, 30.0f);
     newButton.autoresizingMask =
@@ -346,47 +357,30 @@ for (SKPaymentTransaction *transaction in transactions) {
 //记录交易
 -(void)recordTransaction:(NSString *)product{
     NSLog(@"-----记录交易--------");
-    
-    //更新购买记录文件
-    NSMutableDictionary *buyHistory;
-    NSString *docPath =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [docPath stringByAppendingPathComponent:@"buyHistory"];
-    buyHistory = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    
-    if (ISNULL(buyHistory))
-    {
-        buyHistory = [[NSMutableDictionary alloc] init];
-    
-        [buyHistory setObject:@"null" forKey:@"DIAMOND_1"];
-        [buyHistory setObject:@"null" forKey:@"DIAMOND_2"];
-        [buyHistory setObject:@"null" forKey:@"DIAMOND_3"];
-        [buyHistory setObject:@"null" forKey:@"DIAMOND_4"];
-    }
+    TheseusAppDelegate *appDelegate = (TheseusAppDelegate*)[[UIApplication sharedApplication] delegate];
     switch (buyType) {
         case LineLifeItem1:
-            [buyHistory setObject:@"buy" forKey:@"DIAMOND_1"];
+            appDelegate.gDiamond = 60;
             break;
             
         case LineLifeItem2:
-            [buyHistory setObject:@"buy" forKey:@"DIAMOND_2"];
+            appDelegate.gDiamond = 130;
             break;
             
         case LineLifeItem3:
-            [buyHistory setObject:@"buy" forKey:@"DIAMOND_3"];
+            appDelegate.gDiamond = 300;
             break;
             
         case LineLifeItem4:
-            [buyHistory setObject:@"buy" forKey:@"DIAMOND_4"];
+            appDelegate.gDiamond = 1000;
             break;
         default:
             break;
     }
-    
-    [NSKeyedArchiver archiveRootObject:buyHistory toFile:path];
-    //更新记录文件创建完毕
-    
-    //刷新界面文字
-    [self updateText];
+
+    //宝石数量写入文件
+    [appDelegate diamontToFile];
+        
 }
 
 //处理下载内容
@@ -482,8 +476,17 @@ for (SKPaymentTransaction *transaction in transactions) {
     NSLog(@"test");
 }
 
--(void)dealloc{ 
-    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
+-(void)dealloc{
+    /*
+    [_descLabel release];
+    [_copyrightLabel release];
+    [_returnButton release];
+    [_unlockItem4Button release];
+    [_unlockItem3Button release];
+    [_unlockItem2Button release];
+    [_unlockItem1Button release];
+    */
+     [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
     //解除监听
     
 }

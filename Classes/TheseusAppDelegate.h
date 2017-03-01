@@ -16,6 +16,7 @@
 
 //宝石数量
 @property (nonatomic, assign) NSInteger gDiamond;
+-(void)diamontToFile;
 
 @end
 

@@ -12,6 +12,8 @@
 #import "SoundManager.h"
 #import "FlourishController.h"
 #import "GameStateModel.h"
+#import "TheseusAppDelegate.h"
+#import "FWUnlockViewController.h"
 
 static DungeonViewController *shared_instance = nil;
 static volatile BOOL solving_in_progress = NO;
@@ -26,6 +28,12 @@ static volatile BOOL solving_in_progress = NO;
 		shared_instance = [[DungeonViewController alloc] init];
 	}
 	return shared_instance;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    TheseusAppDelegate *appDelegate = (TheseusAppDelegate*)[[UIApplication sharedApplication] delegate];
+    [status_view setDiamond:appDelegate.gDiamond];
 }
 
 - (id)init {
@@ -358,6 +366,20 @@ static volatile BOOL solving_in_progress = NO;
 		} break;
 			
 		case DNAV_HINT: {
+            
+            //这里进行宝石扣除操作
+            TheseusAppDelegate *appDelegate = (TheseusAppDelegate*)[[UIApplication sharedApplication] delegate];
+            if (appDelegate.gDiamond > 0){
+                appDelegate.gDiamond--;
+                [appDelegate diamontToFile];
+                //[gestureDelegate acceptNavigation:DNAV_HINT];
+            }else{
+                //打开宝石购买页面
+                FWUnlockViewController *viewController = [[FWUnlockViewController alloc] initWithNibName:@"FWUnlockViewController" bundle:nil];
+                [self presentViewController:viewController animated:YES completion:nil];
+                break;
+            }
+            
 			if (mino_steps_remaining > 0) {
 				break;
 			}

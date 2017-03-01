@@ -127,12 +127,13 @@ void uncaughtExceptionHandler(NSException *exception) {
         serDiamond = [self getDiamondFromServer];
         if ([serDiamond isEqualToString:@"noDiamond"]){
             //服务器没有宝石信息
-            _gDiamond = 0;
+            _gDiamond = 20;
             NSLog(@"第一次运行，并且服务器没有宝石信息！");
             NSLog(@"%@", serDiamond);
         }else{
-            //成功从服务器获取到宝石信息
-            _gDiamond = [serDiamond integerValue];
+            //成功从服务器获取到宝石信息 第一版没有服务器 默认给20个宝石
+            //_gDiamond = [serDiamond integerValue];
+            _gDiamond = 20;
             NSLog(@"安装、充值、卸载、再次安装后第一次启动，从服务器获取到宝石信息！");
             NSLog(@"%@", serDiamond);
         }
@@ -141,11 +142,16 @@ void uncaughtExceptionHandler(NSException *exception) {
         [NSKeyedArchiver archiveRootObject:tmpDiamond toFile:path];
     }else{
         //成功从获取成功后完成初始化
-        //这种情况什么也不用做就行
+        _gDiamond = [tmpDiamond integerValue];
         NSLog(@"非第一次运行，从本地获取到宝石信息！");
     }
 }
-
+-(void)diamontToFile {
+    NSString *docPath =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [docPath stringByAppendingPathComponent:@"DiamondFile"];
+    NSString* tmpDiamond = [NSString stringWithFormat:@"%i", _gDiamond];
+    [NSKeyedArchiver archiveRootObject:tmpDiamond toFile:path];
+}
 - (NSString*)getDiamondFromServer {
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     //NSString *scoreStr = [NSString stringWithFormat:@"%i", [AppDelegate highScore]];

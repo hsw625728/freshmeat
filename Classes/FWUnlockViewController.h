@@ -27,9 +27,7 @@ buyCoinsTag;
     int buyType;
 }
 
-@property (nonatomic, weak) id<FWUnlockViewControllerDelegate> delegate;
-@property (nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
-@property (nonatomic, strong) IBOutlet UIImageView *logoImageView;
+//@property (nonatomic, weak) id<FWUnlockViewControllerDelegate> delegate;
 @property (nonatomic, strong) UIActivityIndicatorView* activityIndicatorView;
 
 //内购代码

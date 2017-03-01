@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,32 +11,78 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FWUnlockViewController">
             <connections>
-                <outlet property="backgroundImageView" destination="pDy-lZ-agE" id="uAi-zL-v56"/>
-                <outlet property="view" destination="iN0-l3-epB" id="DHM-TZ-BkE"/>
+                <outlet property="copyrightLabel" destination="uKD-1O-Mor" id="UTL-Pc-cxn"/>
+                <outlet property="descLabel" destination="XDT-14-fN9" id="Gpb-nu-5at"/>
+                <outlet property="returnButton" destination="JLA-za-NRO" id="s7d-H2-UdE"/>
+                <outlet property="unlockItem1Button" destination="2Sg-ej-gaa" id="5EG-pk-0sc"/>
+                <outlet property="unlockItem2Button" destination="D2I-7B-Dte" id="lly-tY-bZZ"/>
+                <outlet property="unlockItem3Button" destination="hBf-II-MWl" id="VRB-pn-946"/>
+                <outlet property="unlockItem4Button" destination="obR-9K-37C" id="kgs-dy-MnU"/>
+                <outlet property="view" destination="cOb-Ys-KAd" id="Ght-mf-6RT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+        <view contentMode="scaleToFill" id="cOb-Ys-KAd">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" id="pDy-lZ-agE">
-                    <rect key="frame" x="-7" y="0.0" width="1414" height="2736"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mengyoutu.cn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKD-1O-Mor">
+                    <rect key="frame" x="102" y="576" width="170.00000000000009" height="20.999999999999915"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDT-14-fN9">
+                    <rect key="frame" x="16" y="30" width="309" height="67"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sg-ej-gaa">
+                    <rect key="frame" x="102" y="197" width="106.00000000000013" height="30.000000000000057"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="6元60宝石"/>
+                    <connections>
+                        <action selector="meat1:" destination="-1" eventType="touchUpInside" id="vbc-z9-4Nr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-7B-Dte">
+                    <rect key="frame" x="102" y="269" width="105.99999999999999" height="29.999999999999986"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="12元130宝石"/>
+                    <connections>
+                        <action selector="meat2:" destination="-1" eventType="touchUpInside" id="HgW-TM-k9Y"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBf-II-MWl">
+                    <rect key="frame" x="102" y="341" width="105.99999999999999" height="29.999999999999979"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="18元300宝石"/>
+                    <connections>
+                        <action selector="meat3:" destination="-1" eventType="touchUpInside" id="EE3-I6-3mI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obR-9K-37C">
+                    <rect key="frame" x="102" y="413" width="105.99999999999999" height="30.000000000000057"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="40元1000宝石"/>
+                    <connections>
+                        <action selector="meat4:" destination="-1" eventType="touchUpInside" id="Y7S-6r-Odo"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLA-za-NRO">
+                    <rect key="frame" x="102" y="476" width="105.99999999999999" height="29.999999999999901"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="关闭购买页面"/>
+                    <connections>
+                        <action selector="returnButton:" destination="-1" eventType="touchUpInside" id="oay-uw-nkC"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <nil key="simulatedStatusBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="404" y="445"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="87.5" y="59.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="background" width="414" height="736"/>
-    </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

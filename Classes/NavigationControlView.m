@@ -189,16 +189,9 @@
 	if (sender == button_options) [gestureDelegate acceptNavigation:DNAV_OPTIONS];
 	if (sender == button_hint) {
 		if (hints_available) {
-            //这里进行宝石扣除操作
-            TheseusAppDelegate *appDelegate = (TheseusAppDelegate*)[[UIApplication sharedApplication] delegate];
-            if (appDelegate.gDiamond > 0){
-                appDelegate.gDiamond--;
-                [gestureDelegate acceptNavigation:DNAV_HINT];
-            }else{
-                //打开宝石购买页面
-                FWUnlockViewController *viewController = [[FWUnlockViewController alloc] init];
-                [self presentViewController:viewController animated:YES completion:nil];
-            }
+            
+            [gestureDelegate acceptNavigation:DNAV_HINT];
+            
 		} else {
 			[SoundManager playSound:SND_CANNOTNAV];
 		}
