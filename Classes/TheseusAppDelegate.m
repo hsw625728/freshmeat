@@ -122,7 +122,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     
     if (ISNULL(tmpDiamond)){
         //本地宝石存储文件不存在
-        //尝试从服务器获取宝石信息
+        /*
         NSString* serDiamond = [[NSString alloc] init];
         serDiamond = [self getDiamondFromServer];
         if ([serDiamond isEqualToString:@"noDiamond"]){
@@ -140,6 +140,8 @@ void uncaughtExceptionHandler(NSException *exception) {
         //从服务器获取到宝石信息写入到本地
         tmpDiamond = [NSString stringWithFormat:@"%i", _gDiamond];
         [NSKeyedArchiver archiveRootObject:tmpDiamond toFile:path];
+         */
+        _gDiamond = 0;
     }else{
         //成功从获取成功后完成初始化
         _gDiamond = [tmpDiamond integerValue];

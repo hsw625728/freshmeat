@@ -24,7 +24,7 @@
         
         label_diamond = [[UILabel alloc] initWithFrame:CGRectMake(kStatusBarLabelDiamondX, kStatusBarLabelY, kStatusBarLabelDiamondW, kStatusBarLabelH)];
         label_diamond.font = [UIFont boldSystemFontOfSize:kStatusBarFontSize];
-        [self addSubview:label_diamond];
+        //[self addSubview:label_diamond];
         [label_diamond release];
 		
 		label_moves = [[UILabel alloc] initWithFrame:CGRectMake(kStatusBarLabelMovesX, kStatusBarLabelY, kStatusBarLabelMovesW, kStatusBarLabelH)];		
@@ -68,7 +68,7 @@
 }
 
 - (void)setDiamond:(NSInteger)diamond {
-    label_diamond.text = [NSString stringWithFormat:@"%@: %i", JFLocalizedString(@"DiamondLabel", @"Diamond"), diamond];
+    //label_diamond.text = [NSString stringWithFormat:@"%@: %i", JFLocalizedString(@"DiamondLabel", @"Diamond"), diamond];
 }
 
 - (void)setMoves:(int)moves outOf:(int)goldMoves {
@@ -90,7 +90,7 @@
 - (void)updateForModel:(MapModel*)model {
 	[self setName:[NSString stringWithUTF8String:display_names[model.maze_level]]];
     TheseusAppDelegate *appDelegate = (TheseusAppDelegate*)[[UIApplication sharedApplication] delegate];
-    [self setDiamond:appDelegate.gDiamond];
+    //[self setDiamond:appDelegate.gDiamond];
 	[self setMoves:model.history_cursor outOf:model.best_move_pos];
 	
 	int cbm = [GameStateModel getBestNumMoves:model.maze_level];

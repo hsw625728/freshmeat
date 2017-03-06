@@ -43,7 +43,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sg-ej-gaa">
                     <rect key="frame" x="102" y="197" width="106.00000000000013" height="30.000000000000057"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="6元60宝石"/>
+                    <state key="normal" title="解锁提示按钮"/>
                     <connections>
                         <action selector="meat1:" destination="-1" eventType="touchUpInside" id="vbc-z9-4Nr"/>
                     </connections>
@@ -51,7 +51,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-7B-Dte">
                     <rect key="frame" x="102" y="269" width="105.99999999999999" height="29.999999999999986"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="12元130宝石"/>
+                    <state key="normal" title="恢复购买解锁"/>
                     <connections>
                         <action selector="meat2:" destination="-1" eventType="touchUpInside" id="HgW-TM-k9Y"/>
                     </connections>
@@ -59,7 +59,6 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBf-II-MWl">
                     <rect key="frame" x="102" y="341" width="105.99999999999999" height="29.999999999999979"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="18元300宝石"/>
                     <connections>
                         <action selector="meat3:" destination="-1" eventType="touchUpInside" id="EE3-I6-3mI"/>
                     </connections>
@@ -67,7 +66,6 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obR-9K-37C">
                     <rect key="frame" x="102" y="413" width="105.99999999999999" height="30.000000000000057"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="40元1000宝石"/>
                     <connections>
                         <action selector="meat4:" destination="-1" eventType="touchUpInside" id="Y7S-6r-Odo"/>
                     </connections>

@@ -105,6 +105,7 @@
 		5833E75C1E65AB4F00F416F6 /* FWUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5833E7591E65AB4F00F416F6 /* FWUnlockViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		5833E7621E65B28400F416F6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5833E7611E65B28400F416F6 /* StoreKit.framework */; };
 		5833E7641E66A0DC00F416F6 /* FWUnlockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5833E7631E66A0DC00F416F6 /* FWUnlockViewController.xib */; };
+		5833E76B1E680CB800F416F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5833E76A1E680CB800F416F6 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,6 +235,7 @@
 		5833E75A1E65AB4F00F416F6 /* FWUnlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWUnlockViewController.h; sourceTree = "<group>"; };
 		5833E7611E65B28400F416F6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5833E7631E66A0DC00F416F6 /* FWUnlockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FWUnlockViewController.xib; sourceTree = "<group>"; };
+		5833E76A1E680CB800F416F6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Theseus/Images.xcassets; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -304,6 +306,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5833E76A1E680CB800F416F6 /* Images.xcassets */,
 				351BAF7E0F04609700A8E662 /* Sounds */,
 				351BA9E60F02171500A8E662 /* Images */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
@@ -525,7 +528,7 @@
 			attributes = {
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -566,6 +569,7 @@
 				351BB0970F04774E00A8E662 /* enter.wav in Resources */,
 				351BB18C0F04A6A100A8E662 /* dpad.png in Resources */,
 				351BB18D0F04A6A100A8E662 /* dpad_E.png in Resources */,
+				5833E76B1E680CB800F416F6 /* Images.xcassets in Resources */,
 				351BB18E0F04A6A100A8E662 /* dpad_N.png in Resources */,
 				351BB18F0F04A6A100A8E662 /* dpad_S.png in Resources */,
 				35789130180A3DDD0056F3B7 /* icon@2x.png in Resources */,
@@ -671,10 +675,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 887CVK63XR;
+				DEVELOPMENT_TEAM = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -698,8 +705,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = 887CVK63XR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -714,7 +724,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.mengyoutu.freshmeat;
 				PRODUCT_NAME = Theseus;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "23c71f57-bbe0-4af5-b2d7-03a0e1618ebf";
+				PROVISIONING_PROFILE_SPECIFIER = freshmeat;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -722,7 +733,7 @@
 		3597446D0F0A9D9D00343BFE /* Ad Hoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CODE_SIGN_ENTITLEMENTS = dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jason Fieldman";
@@ -741,11 +752,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = 887CVK63XR;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Theseus_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
@@ -766,7 +780,7 @@
 		3597446F0F0A9DA300343BFE /* App Store */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CODE_SIGN_ENTITLEMENTS = dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jason Fieldman";
@@ -785,9 +799,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = 887CVK63XR;
@@ -803,8 +820,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.mengyoutu.freshmeat;
 				PRODUCT_NAME = Theseus;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "23c71f57-bbe0-4af5-b2d7-03a0e1618ebf";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A54818A6-F388-4D74-9A8F-3D851FF8ABAE";
+				PROVISIONING_PROFILE_SPECIFIER = freshmeat;
 				SDKROOT = iphoneos;
 			};
 			name = "App Store";
@@ -812,7 +830,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Fieldman";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason Fieldman";
@@ -830,7 +848,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;

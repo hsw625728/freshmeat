@@ -32,8 +32,8 @@ static volatile BOOL solving_in_progress = NO;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    TheseusAppDelegate *appDelegate = (TheseusAppDelegate*)[[UIApplication sharedApplication] delegate];
-    [status_view setDiamond:appDelegate.gDiamond];
+    //TheseusAppDelegate *appDelegate = (TheseusAppDelegate*)[[UIApplication sharedApplication] delegate];
+    //[status_view setDiamond:appDelegate.gDiamond];
 }
 
 - (id)init {
@@ -368,17 +368,14 @@ static volatile BOOL solving_in_progress = NO;
 		case DNAV_HINT: {
             
             //这里进行宝石扣除操作
+            
             TheseusAppDelegate *appDelegate = (TheseusAppDelegate*)[[UIApplication sharedApplication] delegate];
-            if (appDelegate.gDiamond > 0){
-                appDelegate.gDiamond--;
-                [appDelegate diamontToFile];
-                //[gestureDelegate acceptNavigation:DNAV_HINT];
-            }else{
-                //打开宝石购买页面
+            if (appDelegate.gDiamond == 0){
                 FWUnlockViewController *viewController = [[FWUnlockViewController alloc] initWithNibName:@"FWUnlockViewController" bundle:nil];
                 [self presentViewController:viewController animated:YES completion:nil];
                 break;
             }
+            
             
 			if (mino_steps_remaining > 0) {
 				break;

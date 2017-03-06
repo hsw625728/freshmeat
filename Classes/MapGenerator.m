@@ -1297,14 +1297,14 @@ char *display_names[NUM_LEVEL_NAMES] = {
 "85",
 "86",
 "87",
-"User-1",
-"User-2",
-"User-3",
-"User-4",
-"User-5",
-"User-6",
-"User-7",
-"User-8",
+"经典难关-1",
+"经典难关-2",
+"经典难关-3",
+"经典难关-4",
+"经典难关-5",
+"经典难关-6",
+"经典难关-7",
+"经典难关-8",
 };
 
 MapModel *static_models[NUM_LEVELS];

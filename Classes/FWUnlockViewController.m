@@ -66,7 +66,7 @@
     _activityIndicatorView.activityIndicatorViewStyle= UIActivityIndicatorViewStyleGray;
     [self.view addSubview:_activityIndicatorView];
     
-    _descLabel.text = @"点击提示按钮会自动走一步\n同时会消耗一个宝石币";
+    //_descLabel.text = @"点击提示按钮会自动走一步\n同时会消耗一个宝石币";
     self.returnButton = [FWUnlockViewController createMenuButtonWithTitle:NSLocalizedString(@"unlock.return", @"关闭宝石页面")];
     [self updateText];
 
@@ -150,7 +150,7 @@
     [self buy:LineLifeItem1];
 }
 - (IBAction)meat2:(id)sender {
-    [self buy:LineLifeItem2];
+    [self buy:LineLifeItem1];
 }
 - (IBAction)meat3:(id)sender {
     [self buy:LineLifeItem3];
@@ -197,10 +197,10 @@
     NSArray *product = nil;
     switch (buyType)
     {
-        case LineLifeItem1: product=[[NSArray alloc] initWithObjects:@"DIAMOND_1",nil];
+        case LineLifeItem1: product=[[NSArray alloc] initWithObjects:@"UNLOCK",nil];
             break;
             
-        case LineLifeItem2: product=[[NSArray alloc] initWithObjects:@"DIAMOND_2",nil];
+        case LineLifeItem2: product=[[NSArray alloc] initWithObjects:@"UNLOCK",nil];
             break;
             
         case LineLifeItem3: product=[[NSArray alloc] initWithObjects:@"DIAMOND_3",nil];
@@ -244,7 +244,7 @@
     switch (buyType) {
             
         case LineLifeItem1:
-            payment = [SKPayment paymentWithProductIdentifier:@"DIAMOND_1"]; //支付6
+            payment = [SKPayment paymentWithProductIdentifier:@"UNLOCK"]; //支付6
             break;
             
         case LineLifeItem2:
@@ -364,7 +364,7 @@ for (SKPaymentTransaction *transaction in transactions) {
             break;
             
         case LineLifeItem2:
-            appDelegate.gDiamond = 130;
+            appDelegate.gDiamond = 60;
             break;
             
         case LineLifeItem3:
@@ -398,45 +398,29 @@ for (SKPaymentTransaction *transaction in transactions) {
 }
 - (void) restoreTransaction: (SKPaymentTransaction *)transaction{
     NSLog(@" 交易恢复处理");
-    //更新购买记录文件
-    NSMutableDictionary *buyHistory;
-    NSString *docPath =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [docPath stringByAppendingPathComponent:@"buyHistory"];
-    buyHistory = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    
-    if (ISNULL(buyHistory))
-    {
-        buyHistory = [[NSMutableDictionary alloc] init];
-    
-        [buyHistory setObject:@"null" forKey:@"DIAMOND_1"];
-        [buyHistory setObject:@"null" forKey:@"DIAMOND_2"];
-        [buyHistory setObject:@"null" forKey:@"DIAMOND_3"];
-        [buyHistory setObject:@"null" forKey:@"DIAMOND_4"];
-    }
+    TheseusAppDelegate *appDelegate = (TheseusAppDelegate*)[[UIApplication sharedApplication] delegate];
     switch (buyType) {
         case LineLifeItem1:
-            [buyHistory setObject:@"buy" forKey:@"DIAMOND_1"];
+            appDelegate.gDiamond = 60;
             break;
             
         case LineLifeItem2:
-            [buyHistory setObject:@"buy" forKey:@"DIAMOND_2"];
+            appDelegate.gDiamond = 60;
             break;
             
         case LineLifeItem3:
-            [buyHistory setObject:@"buy" forKey:@"DIAMOND_3"];
+            appDelegate.gDiamond = 300;
             break;
             
         case LineLifeItem4:
-            [buyHistory setObject:@"buy" forKey:@"DIAMOND_4"];
+            appDelegate.gDiamond = 1000;
             break;
         default:
             break;
     }
     
-    [NSKeyedArchiver archiveRootObject:buyHistory toFile:path];
-    //更新记录文件创建完毕
-    //刷新界面文字
-    [self updateText];
+    //宝石数量写入文件
+    [appDelegate diamontToFile];
 }
 
 -(void) paymentQueue:(SKPaymentQueue *) paymentQueue restoreCompletedTransactionsFailedWithError:(NSError *)error{

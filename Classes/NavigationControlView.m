@@ -190,7 +190,8 @@
 	if (sender == button_hint) {
 		if (hints_available) {
             
-            [gestureDelegate acceptNavigation:DNAV_HINT];
+                [gestureDelegate acceptNavigation:DNAV_HINT];
+            
             
 		} else {
 			[SoundManager playSound:SND_CANNOTNAV];
